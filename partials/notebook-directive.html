@@ -1,0 +1,9 @@
+<ul class="thumbnails">
+    <li ng-repeat="note in notes">
+        <my-note class="span2 thumbnail" delete="deleteNote(note.id)" note="note">
+            <button class="btn btn-large close pull-right" ng-click="delete()">&times;</button>
+            <hr/>
+            <p>{{note.title}}</p>
+        </my-note>
+    </li>
+</ul>
