@@ -52,9 +52,12 @@ angular.module('myApp', [])
                 note:'='
             },
             link:function (scope, element, attrs) {
-                var $el = $(element);
+                // Since this project pulls in jQuery, element is already
+                // a wrapped jQuery object, so there is no need to do 
+                // something like:  var $el = $(element);
+                // We can use element directly with jQuery methods.
 
-                $el.hide().fadeIn('slow');
+                element.hide().fadeIn('slow');
 
                 $('.thumbnails').sortable({
                     placeholder:"ui-state-highlight", forcePlaceholderSize:true
