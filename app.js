@@ -11,25 +11,23 @@ angular.module('myApp', [])
             {id:8, title:'Note 8'}
         ];
 
-        return {
-            notes:function () {
-                return data;
-            },
-            addNote:function (noteTitle) {
-                var currentIndex = data.length + 1;
-                data.push({
-                    id:currentIndex, title:noteTitle
-                });
-            },
-            deleteNote:function (id) {
-                var oldNotes = data;
-                data = [];
+        this.notes = function () {
+            return data;
+        }
+        this.addNote = function (noteTitle) {
+            var currentIndex = data.length + 1;
+            data.push({
+                id:currentIndex, title:noteTitle
+            });
+        }
+        this.deleteNote = function (id) {
+            var oldNotes = data;
+            data = [];
 
-                angular.forEach(oldNotes, function (note) {
-                    if (note.id !== id) data.push(note);
-                });
-            }
-        };
+            angular.forEach(oldNotes, function (note) {
+                if (note.id !== id) data.push(note);
+            });
+        }
     })
     .directive('myNotebook', function ($log) {
         return {
